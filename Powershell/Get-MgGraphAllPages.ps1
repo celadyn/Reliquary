@@ -48,11 +48,16 @@
             # Extract the NextLink
             $currentNextLink = $page.'@odata.nextLink'
 
+
+
             # We know this is a wrapper object if it has an "@odata.context" property
             #if (Get-Member -InputObject $page -Name '@odata.context' -Membertype Properties) {
             # MgGraph update - MgGraph returns hashtables, and almost always includes .context
             # instead, let's check for nextlinks specifically as a hashtable key
             if ($page.ContainsKey('@odata.count')) {
+                # Calculate the number of pages
+                $totalPages = [math]::Ceiling($SearchResult.'@odata.count' / $SearchResult.'@odata.nextLink'.Split('$top=')[1].Split('&')[0])
+                Write-Verbose "Total pages expected: $totalPages"
                 Write-Verbose "First page value count: $($Page.'@odata.count')"    
             }
 
