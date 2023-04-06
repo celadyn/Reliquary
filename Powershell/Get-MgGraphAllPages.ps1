@@ -1,25 +1,4 @@
 ﻿function Get-MgGraphAllPages {
-    <#
-    .SYNOPSIS
-        Iterates through a set of pages returned from a Graph API request.
-
-    .DESCRIPTION
-        Iterates through a set of pages returned from a Graph API request.
-
-    .PARAMETER NextLink
-        The @odata.nextLink value from the previous page.
-
-    .PARAMETER SearchResult
-        The first page of results from a Graph API request.
-
-    .PARAMETER ToPSCustomObject
-        Switch parameter to convert the results to PSCustomObjects.
-
-    .EXAMPLE
-        Get-MgGraphPage -SearchResult $searchResult -ToPSCustomObject
-
-        Iterates through the pages returned from the Graph API request and converts the results to PSCustomObjects.
-    #>
     [CmdletBinding(
         ConfirmImpact = 'Medium',
         DefaultParameterSetName = 'SearchResult'
@@ -108,3 +87,28 @@
 
     end {}
 }
+
+<# ## removed for demo lol
+    <#
+    .SYNOPSIS
+        Iterates through a set of pages returned from a Graph API request.
+
+    .DESCRIPTION
+        Iterates through a set of pages returned from a Graph API request.
+
+    .PARAMETER NextLink
+        The @odata.nextLink value from the previous page.
+
+    .PARAMETER SearchResult
+        The first page of results from a Graph API request.
+
+    .PARAMETER ToPSCustomObject
+        Switch parameter to convert the results to PSCustomObjects.
+
+    .EXAMPLE
+        Get-MgGraphPage -SearchResult $searchResult -ToPSCustomObject
+
+        Iterates through the pages returned from the Graph API request and converts the results to PSCustomObjects.
+    #>
+
+#>
